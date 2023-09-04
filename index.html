@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/plugin/relativeTime.js"></script>
+    <script>
+      var config = {
+        rounding: Math.floor
+      }
+      dayjs.extend(window.dayjs_plugin_relativeTime, config)
+    </script>
+  </head>
+<body style="">
+  <script>
+    let born_day = dayjs(1692059280000);
+    let now_day = dayjs();
+
+    let hour_in_day = 24;
+    let minute_in_hour = 60;
+    let minute_in_day = minute_in_hour * hour_in_day;
+    let sec_in_minute = 60;
+    let sec_in_hour = sec_in_minute * minute_in_hour;
+    let sec_in_day = sec_in_hour * hour_in_day;
+
+    let days_diff = now_day.diff(born_day, "day");
+    let hours_diff = now_day.diff(born_day, "hour") - (days_diff * hour_in_day);
+    let minutes_diff = now_day.diff(born_day, "minute") - (days_diff * minute_in_day) - (hours_diff * minute_in_hour);
+    let seconds_diff = now_day.diff(born_day, "second") - (days_diff * sec_in_day) - (hours_diff * sec_in_hour) - (minutes_diff * sec_in_minute);
+  </script>
+  <div class="relative flex min-h-screen flex-col overflow-hidden bg-gray-50 py-0">
+    <div class="max-w-none px-6 pb-8">
+      <div class="divide-y divide-gray-300/50">
+        <div class="space-y-6 py-8 text-base leading-7 text-gray-600">
+          <div class="pt-8 text-4xl font-extrabold leading-7">
+            <p class="text-gray-900">How old is Aria?</p>
+          </div>
+          <ul class="space-y-4">
+            <li class="flex items-center">
+              <svg class="h-6 w-6 flex-none fill-red-300 stroke-red-400 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="11"></circle>
+              </svg>
+              <p class="ml-4">
+                Born
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(born_day.format("MMMM D, YYYY @ HH:mm A"))
+                  </script>
+                </code>
+              </p>
+            </li>
+            <li class="flex items-center">
+              <svg class="h-6 w-6 flex-none fill-red-300 stroke-red-400 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="11"></circle>
+              </svg>
+              <p class="ml-4">
+                Today's date is
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(now_day.format("MMMM D, YYYY @ HH:mm A"))
+                  </script>
+                </code>
+              </p>
+            </li>
+            <li class="flex items-center">
+              <svg class="h-6 w-6 flex-none fill-red-300 stroke-red-400 stroke-2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="11"></circle>
+              </svg>
+                            <p class="ml-4">
+                It has been
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(days_diff)
+                  </script>
+                </code>
+                days,
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(hours_diff)
+                  </script>
+                </code>
+                hours,
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(minutes_diff)
+                  </script>
+                </code>
+                 minutes, and
+                <code class="text-sm font-bold text-gray-900">
+                  <script>
+                    document.write(seconds_diff)
+                  </script>
+                </code>
+                 seconds since she was born
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="pt-8 text-base font-semibold leading-7">
+          <p class="text-gray-900">Want to dig deeper into Tailwind?</p>
+          <p>
+            <a href="https://tailwindcss.com/docs" class="text-sky-500 hover:text-sky-600">Read the docs →</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
