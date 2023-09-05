@@ -11,6 +11,8 @@
   --month-label-color: hsl(var(--hue), 30%, 64%);
   --today-bg-color: hsl(var(--hue), 30%, 40%);
   --today-text-color: white;
+  --pending-bg-color: hsl(var(--hue), 30%, 65%);
+  --pending-text-color: white;
 }
 
 html {
@@ -97,6 +99,11 @@ body {
 .cell.today {
   background-color: var(--today-bg-color);
   color: var(--today-text-color);
+}
+
+.cell.pending {
+  background-color: var(--pending-bg-color);
+  color: var(--pending-text-color);
 }
 
 /*

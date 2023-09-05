@@ -90,15 +90,19 @@
           cell.appendChild(monthLabel);
         }
         const today = new Date();
-        today.setHours(0,0,0,0);
+        const midnight = new Date();
+        midnight.setHours(0,0,0,0)
         const born = new Date(1692059280000);
-        born.setHours(0,0,0,0)
         const currentDayAsDate = new Date(thisYear, month.number, currentDay);
-        if (currentDayAsDate.getTime() == today.getTime()) {
+        if (currentDayAsDate.getTime() == midnight.getTime()) {
           cell.classList.add('today');
-        }
-        if (crossOutPastDays && currentDayAsDate < today && currentDayAsDate >= born) {
-          cell.classList.add('crossed');
+        } else if (crossOutPastDays) {
+          currentDayAsDate.setHours(17,28,0,0);
+          if (today - currentDayAsDate >= 86400 && currentDayAsDate >= born) {
+            cell.classList.add('crossed');
+          } else if (today - currentDayAsDate < 86400 && today - currentDayAsDate >= 0) {
+            cell.classList.add('pending');
+          }
         }
         currentDay++;
       }
