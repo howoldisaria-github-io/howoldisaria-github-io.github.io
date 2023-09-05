@@ -93,6 +93,7 @@
         const midnight = new Date();
         midnight.setHours(0,0,0,0)
         const born = new Date(1692059280000);
+        // const born_hour_offset = Math.floor(1692059280000 % (1000 * 60 * 60))
         const currentDayAsDate = new Date(thisYear, month.number, currentDay);
         if (currentDayAsDate.getTime() == midnight.getTime()) {
           cell.classList.add('today');

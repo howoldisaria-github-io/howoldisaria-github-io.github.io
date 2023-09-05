@@ -74,25 +74,51 @@
                     document.write(days_diff)
                   </script>
                 </code>
-                days,
+                <script>
+                    if (days_diff > 1 || days_diff == 0) {
+                      document.write("days,")
+                    } else {
+                      document.write("day,")
+                    }
+                </script>
                 <code class="text-sm font-bold text-gray-900">
                   <script>
                     document.write(hours_diff)
                   </script>
                 </code>
-                hours,
+                <script>
+                    if (hours_diff > 1 || hours_diff == 0) {
+                      document.write("hours,")
+                    } else {
+                      document.write("hour,")
+                    }
+                </script>
                 <code class="text-sm font-bold text-gray-900">
                   <script>
                     document.write(minutes_diff)
                   </script>
                 </code>
-                 minutes, and
+                <script>
+                    if (minutes_diff > 1 || minutes_diff == 0) {
+                      document.write("minutes,")
+                    } else {
+                      document.write("minute,")
+                    }
+                </script>
+                and
                 <code class="text-sm font-bold text-gray-900">
                   <script>
                     document.write(seconds_diff)
                   </script>
                 </code>
-                 seconds since she was born
+                 <script>
+                    if (seconds_diff > 1 || seconds_diff == 0) {
+                      document.write("seconds")
+                    } else {
+                      document.write("second")
+                    }
+                </script>
+                 since she was born
               </p>
             </li>
           </ul>
